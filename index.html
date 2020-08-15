@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CinemaCrate</title>
+    <!-- LINKING FONTAWESOME -->
+    <script
+      src="https://kit.fontawesome.com/e3580562cc.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- LINKING CSS  -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- LINKING FONTS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div id="logo">
+        <img src="images/Logo.svg" alt="CinemaCrate" />
+        <a href="">CinemaCrate</a>
+      </div>
+      <div id="logo-name"></div>
+      <nav>
+        <ul class="nav_links">
+          <li class="item"><a href="">Signup</a></li>
+          <li class="item"><a href="">Login</a></li>
+          <li class="item">
+            <a href=""><i class="fas fa-bars"></i></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!--begin: header-home-->
+    <div class="header-home">
+      <div class="search-home-title">
+        <h2 class="search-heading-main">REVIEWS which MATTERS</h2>
+        <h3 class="search-heading-sub">Legit and verified ratings</h3>
+      </div>
+      <div class="search-container">
+        <div class="search-box">
+          <div class="search-icon"><i class="fa fa-search"></i></div>
+          <form @submit="search">
+            <input
+              v-model="keyword"
+              type="text"
+              class="form-control search-input"
+              name="keyword"
+              placeholder="Search Movies, TV Shows and much more..."
+              autocomplete="off"
+            />
+            <button class="btn btn-primary btn-primary-submit">
+              <i class="fa fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- end: header-home -->
+  </body>
+</html>
