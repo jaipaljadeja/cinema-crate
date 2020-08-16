@@ -10,7 +10,8 @@ html {
 /* BODY  */
 
 body {
-  background-color: #1d1d1d;
+  background-image: linear-gradient(to right, #1d1d1d, #111111);
+  /* background-color: #1d1d1d; */
   font-family: "Oswald", sans-serif;
 }
 
@@ -25,6 +26,24 @@ header {
   align-items: center;
   padding: 20px 8%;
 }
+/* ADIING BACKGROUND SHAPE SVG (CURRENTLY NOT RESPONSIVE) */
+/* will make it hidden with media query and screen width */
+/* Or will scale it according to screen width */
+
+/* header::before {
+  content: "";
+  background-image: url(/images/backdrop-shape.svg) no-repeat center;
+  position: absolute;
+  width: 800px;
+  height: 884px;
+  left: 524px;
+  top: -540px;
+  background: #313131;
+  box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.25);
+  border-radius: 53px;
+  transform: rotate(42.03deg) scale(1);
+  z-index: -1;
+} */
 
 #logo {
   display: flex;
@@ -137,7 +156,7 @@ header {
   font-weight: 400;
 }
 
-.btn {
+.viewmore-btn {
   display: inline-block;
   cursor: pointer;
   text-align: center;
@@ -145,9 +164,9 @@ header {
   border: none;
   font-size: 1rem;
   text-decoration: none;
+  color: #ffdf46;
 }
-.block-area .block-area-header .viewmore .btn {
-  padding: 4px 0px;
+.block-area .block-area-header .viewmore .viewmore-btn {
   color: #ffdf46;
 }
 
@@ -165,10 +184,16 @@ header {
 
 .film-poster {
   overflow: hidden;
+  border-radius: 5px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 .filmlist-wrap .flw-item .film-poster a img {
   width: 190px;
   transition: 0.5s ease;
+  object-fit: cover;
+  background-position: center;
+  display: block;
 }
 
 .filmlist-wrap .flw-item .film-poster a img:hover {
@@ -176,25 +201,152 @@ header {
 }
 
 .flw-item {
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+  /* background-color: white; */
+  /* padding: 0px 10px; */
+  padding-top: 10px;
+  padding-bottom: 0px;
+  /* border-radius: 5px;
+  box-shadow: 10px 10px 20px #000000; */
 }
 
 .mr-film-detail {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 5px;
+  /* padding-top: 5px; */
+  background-color: #ffffff;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .mr-film-detail a {
   text-decoration: none;
-  color: rgb(163, 163, 163);
+  color: #2e2e2e;
 }
 .mr-film-detail a:hover {
-  color: white;
+  color: #000000;
 }
 .mr-film-detail .ex-film-info {
-  padding-top: 3px;
+  padding-top: 2px;
 }
 .mr-film-detail .ex-film-info span {
+  color: #000000a9;
+}
+
+/* POPUP MOVIE INFO CARD DESIGN */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  margin: 12% auto;
+  background-image: linear-gradient(to right, #2b2b2b, #1d1d1d);
+  box-shadow: 0px 4px 100px #000000;
+  border-radius: 10px;
+  padding: 50px;
+  width: 50%;
+  position: relative;
+  animation-name: modalopen;
+  animation-duration: 1s;
+  display: flex;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.btn {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #ffdf46;
+  font-family: "Oswald", sans-serif;
+  border: none;
+  cursor: pointer;
+}
+
+.btn a {
+  text-decoration: none;
+  font-family: "Oswald", sans-serif;
+  color: #1d1d1d;
+  font-weight: 600;
+}
+
+.btn:hover {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.closeBtn {
+  position: absolute;
+  top: -15px;
+  right: 10px;
+  font-size: 40px;
+  cursor: pointer;
   color: #ffdf46;
+  transition: 0.1s ease;
+}
+
+.closeBtn:hover {
+  font-size: 45px;
+}
+
+/* MODAL(CARD) CONTENTS DESIGN */
+.modal-poster img {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-info {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.modal-info-sub .md-name {
+  color: #ffdf46;
+}
+.modal-info-sub .md-genre {
+  font-size: 15px;
+  font-weight: 200;
+}
+.modal-info-sub .md-num-area {
+  font-size: 35px;
+}
+
+.modal-info-sub .md-num-area .imdb-icon,
+.imdb-rating {
+  color: #ffdf46;
+}
+
+.modal-info-sub .md-num-area .md-numbers {
+  font-size: 22px;
+  background-color: #4a4a4a;
+  border-radius: 5px;
+  padding: 0px 15px;
+}
+
+.modal-info-sub .md-synopsis {
+  font-weight: 300;
+}
+
+.modal-info-sub .md-btn button {
+  width: 200px;
+  border: none;
+}
+
+.modal-info-sub .md-subitems {
+  padding-bottom: 10px;
 }
