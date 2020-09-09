@@ -29,3 +29,16 @@ function clickOutside(e) {
     modal.style.display = "none";
   }
 }
+
+//-------------------- SIDE BAR OPENING SCRIPT -----------------------
+$(document).ready(function () {
+  $(".sidebar-btn").click(function () {
+    $(".header-wrapper").toggleClass("collapse");
+  });
+});
+//-------------------- SIDE BAR CLOSING SCRIPT -----------------------
+$(document).ready(function () {
+  $(".sidebar-close-btn").click(function () {
+    $(".header-wrapper").toggleClass("collapse");
+  });
+});
