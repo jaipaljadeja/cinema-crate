@@ -327,7 +327,7 @@ body {
 }
 .mr-film-detail a:hover {
   color: #000000;
-  text-shadow: ;
+  text-shadow: 1px 1px 4px #ffdf46;
 }
 .mr-film-detail .ex-film-info {
   padding-top: 2px;
