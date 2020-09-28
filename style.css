@@ -265,7 +265,7 @@ body {
 .filmlist-wrap {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .film-poster {
@@ -275,7 +275,8 @@ body {
   border-bottom-right-radius: 0px;
 }
 .filmlist-wrap .flw-item .film-poster a img {
-  width: 230px;
+  height: 21.5em;
+  width: 14.37em;
   transition: 0.5s ease;
   object-fit: cover;
   background-position: center;
@@ -287,6 +288,8 @@ body {
 }
 
 .flw-item {
+  margin: 0 9px;
+  width: 14.37em;
   margin-bottom: 20px;
   /* background-color: white; */
   /* padding: 0px 10px; */
@@ -299,7 +302,6 @@ body {
 
 .mr-film-detail {
   font-size: 15px;
-  width: 230px;
   height: 2.5em;
   display: flex;
   align-items: center;
@@ -372,6 +374,18 @@ body {
   animation-duration: 0.5s;
   display: flex;
   z-index: 1;
+}
+
+#mdOverview {
+  text-overflow: ellipsis;
+  overflow: auto;
+  height: 6.5em;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+#mdOverview::-webkit-scrollbar {
+  display: none;
 }
 
 @keyframes modalopen {
