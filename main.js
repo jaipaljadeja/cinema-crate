@@ -290,6 +290,25 @@ document.onclick = function (event) {
       fetchImdbRating(omdbUrl);
     }
   }
+  //get close button
+  var closeBtn = document.getElementById("closeBtn");
+  //listen for close click
+  closeBtn.addEventListener("click", closeModal);
+  //listen for outside click
+  window.addEventListener("click", clickOutside);
+  //function to close modal
+  function closeModal() {
+    modal.style.display = "none";
+    document.getElementById("mdGenre").innerHTML = ""; // so that as we close the popup it will clear the genre field else will keep adding up
+  }
+
+  //function to close modal if clicked outside
+  function clickOutside(e) {
+    if (e.target == modal) {
+      modal.style.display = "none";
+      document.getElementById("mdGenre").innerHTML = ""; // so that as we close the popup it will clear the genre field else will keep adding up
+    }
+  }
 };
 
 function cookPopupInfo(item, type) {
@@ -351,41 +370,6 @@ function cookPopupInfo(item, type) {
     ).innerHTML = `${item.episode_run_time} MIN/EP`;
   }
 }
-
-window.onload = function () {
-  //get open modal button
-  var modalBtn = document.querySelectorAll(".flw-item");
-  //get close button
-  var closeBtn = document.getElementById("closeBtn");
-
-  //listen for open click
-  // for (const modalBtns of modalBtn) {
-  //   modalBtns.addEventListener("click", openModal);
-  // }
-  //listen for close click
-  closeBtn.addEventListener("click", closeModal);
-  //listen for outside click
-  window.addEventListener("click", clickOutside);
-
-  //function to open modal
-  // function openModal() {
-  //   modal.style.display = "block";
-  // }
-
-  //function to close modal
-  function closeModal() {
-    modal.style.display = "none";
-    document.getElementById("mdGenre").innerHTML = ""; // so that as we close the popup it will clear the genre field else will keep adding up
-  }
-
-  //function to close modal if clicked outside
-  function clickOutside(e) {
-    if (e.target == modal) {
-      modal.style.display = "none";
-      document.getElementById("mdGenre").innerHTML = ""; // so that as we close the popup it will clear the genre field else will keep adding up
-    }
-  }
-};
 
 // ------------------------------------------- POPUP modal end -------------------------------------------------
 
