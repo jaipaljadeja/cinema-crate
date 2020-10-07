@@ -27,7 +27,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 20px 8%;
+  padding: 20px 4.3%;
 }
 /* ADIING BACKGROUND SHAPE SVG (CURRENTLY NOT RESPONSIVE) */
 /* will make it hidden with media query and screen width */
@@ -54,7 +54,7 @@ body {
   align-items: center;
 }
 #logo a {
-  font-size: 1.5rem;
+  font-size: 1.5em;
   color: #ffdf46;
   font-weight: 700;
   text-decoration: none;
@@ -72,7 +72,7 @@ body {
 .nav_links li a {
   text-decoration: none;
   color: #ffdf46;
-  font-size: 1.3rem;
+  font-size: 1.3em;
   border-radius: 20px;
   padding: 2px 22px;
 }
@@ -180,7 +180,7 @@ body {
 }
 .search-heading-main {
   color: #ffdf46;
-  font-size: 2rem;
+  font-size: 2em;
   font-weight: 400;
 }
 .search-heading-sub {
@@ -235,11 +235,12 @@ body {
 
 /* HOME PAGE CATEGORY */
 .main-wrapper {
-  padding: 30px 130px;
+  padding: 30px 5vw;
 }
 .main-wrapper .cat-heading {
   color: #ffdf46;
   font-weight: 400;
+  font-size: 1.5vw;
 }
 
 .viewmore-btn {
@@ -254,6 +255,7 @@ body {
 }
 .block-area .block-area-header .viewmore .viewmore-btn {
   color: #ffdf46;
+  font-size: 1.2vw;
 }
 
 .block-area-header {
@@ -265,7 +267,8 @@ body {
 .filmlist-wrap {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
+  align-items: center;
+  justify-content: center;
 }
 
 .film-poster {
@@ -275,8 +278,8 @@ body {
   border-bottom-right-radius: 0px;
 }
 .filmlist-wrap .flw-item .film-poster a img {
-  height: 21.5em;
-  width: 14.37em;
+  height: 24.5vw;
+  width: 16.37vw;
   transition: 0.5s ease;
   object-fit: cover;
   background-position: center;
@@ -289,7 +292,7 @@ body {
 
 .flw-item {
   margin: 0 9px;
-  width: 14.37em;
+  width: 16.37vw;
   margin-bottom: 20px;
   /* background-color: white; */
   /* padding: 0px 10px; */
@@ -301,7 +304,7 @@ body {
 }
 
 .mr-film-detail {
-  font-size: 15px;
+  font-size: 1vw;
   height: 2.5em;
   display: flex;
   align-items: center;
@@ -482,7 +485,7 @@ body {
 /* --------------------------------- Gradient FOOTER with BG ----------------------------------------------- */
 
 .footer {
-  padding: 0px 8%;
+  padding: 0px 5vw;
 }
 .footer hr {
   width: 100%;
