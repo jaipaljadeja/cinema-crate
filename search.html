@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CinemaCrate</title>
+    <!-- LINKING FONTAWESOME -->
+    <script
+      src="https://kit.fontawesome.com/e3580562cc.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- LINKING CSS  -->
+    <link rel="stylesheet" href="./search/search.css" />
+    <!-- LINKING FONTS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      charset="utf-8"
+    ></script>
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div class="header">
+        <div id="logo">
+          <img src="../images/Logo.svg" alt="CinemaCrate" />
+          <a href="index.html">CinemaCrate</a>
+        </div>
+        <div class="search-box">
+          <div class="search-icon"><i class="fa fa-search"></i></div>
+          <form id="searchbox-form">
+            <input
+              id="input-value"
+              type="text"
+              v-model="keyword"
+              class="form-control search-input"
+              placeholder="Search Movies, TV Shows and much more..."
+              autocomplete="off"
+              required
+            />
+            <button id="search-btn" class="btn btn-primary btn-primary-submit">
+              <i class="fa fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+        <nav>
+          <ul class="nav_links">
+            <li class="item"><a href="">Signup</a></li>
+            <li class="item"><a href="">Login</a></li>
+            <li class="item">
+              <div class="sidebar-btn">
+                <i class="fas fa-bars"></i>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="sidebar">
+        <div class="sidebar-menu">
+          <div class="sidebar-close-btn">
+            <i class="fas fa-times"></i>
+          </div>
+          <center class="sidebar-profile">
+            <span><i class="fas fa-user-circle"></i></span>
+            <p>username</p>
+          </center>
+          <hr />
+          <ul>
+            <li class="sidebar-items">
+              <a href="" class="menu-btn"
+                ><i class="fas fa-home"></i><span>Home</span></a
+              >
+            </li>
+            <li class="sidebar-items">
+              <a href="" class="menu-btn"
+                ><i class="fas fa-heart"></i><span>Favourite</span></a
+              >
+            </li>
+            <li class="sidebar-items">
+              <a href="" class="menu-btn"
+                ><i class="fas fa-clipboard-list"></i><span>Watch-List</span></a
+              >
+            </li>
+            <li class="sidebar-items">
+              <a href="" class="menu-btn"
+                ><i class="fas fa-envelope"></i><span>Contact Us</span></a
+              >
+            </li>
+            <li class="sidebar-items">
+              <a href="" class="menu-btn"
+                ><i class="fas fa-info-circle"></i><span>About Us</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--begin: header-home-->
+    <!-- <div class="header-home">
+      <div class="search-home-title">
+        <h2 class="search-heading-main">REVIEWS which MATTERS</h2>
+        <h3 class="search-heading-sub">Legit and verified ratings</h3>
+      </div>
+      <div class="search-container">
+        <div class="search-box">
+          <div class="search-icon"><i class="fa fa-search"></i></div>
+          <form>
+            <input
+              id="input-value"
+              type="text"
+              v-model="keyword"
+              class="form-control search-input"
+              placeholder="Search Movies, TV Shows and much more..."
+              autocomplete="off"
+            />
+            <button id="search-btn" class="btn btn-primary btn-primary-submit">
+              <i class="fa fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div> -->
+    <!-- end: header-home -->
+
+    <div class="main-wrapper">
+      <div id="searchValueDisplay">
+        <center><h2>Search: "Avengers"</h2></center>
+      </div>
+      <div class="container">
+        <!-- ********************************* SECTION: Search ************************************************ -->
+        <section class="section-id-1 block-area block-area-home">
+          <div class="block-area-header">
+            <div class="section-name">
+              <h2 class="cat-heading">| Movies</h2>
+            </div>
+            <div class="float-right viewmore">
+              <div class="pagination" id="movie-pagination">
+                <a href="javascript:prevMoviePage()" id="m_btn_prev">&laquo;</a>
+                <a class="active" id="m_btn_curr" href="#">1</a>
+                <a href="javascript:nextMoviePage()" id="m_btn_next">&raquo;</a>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content">
+            <div id="trending-movies">
+              <div
+                class="film-list film-list-grid block-area-list block-area-content"
+                id="movie-results"
+              >
+                <div
+                  style="
+                    min-height: 15vw;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <p style="color: #ffe0466c">NO RESULTS</p>
+                </div>
+                <!--  MOVIE RESULTS DATA TO BE INSERTED -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-id-1 block-area block-area-home">
+          <div class="block-area-header">
+            <div class="section-name">
+              <h2 class="cat-heading">| TV Shows</h2>
+            </div>
+            <div class="float-right viewmore">
+              <div class="pagination" id="tv-pagination">
+                <a href="javascript:prevTvPage()" id="t_btn_prev">&laquo;</a>
+                <a class="active" href="#" id="t_btn_curr">1</a>
+                <a href="javascript:nextTvPage()" id="t_btn_next">&raquo;</a>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content">
+            <div id="trending-movies">
+              <div
+                class="film-list film-list-grid block-area-list block-area-content"
+                id="tv-results"
+              >
+                <div
+                  style="
+                    min-height: 15vw;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <p style="color: #ffe0466c">NO RESULTS</p>
+                </div>
+                <!-- TV RESULTS DATA TO BE INSERTED -->
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- CODE FOR MOVIE INFO POPUP CARD  -->
+
+      <div id="simpleModal" class="modal">
+        <div class="modal-content">
+          <span id="closeBtn">&times;</span>
+          <div class="modal-poster" id="mdPoster">
+            <img
+              src=""
+              class="film-poster-img"
+              title="Movie Name"
+              alt="Movie Name"
+              width="200em"
+            />
+          </div>
+          <div class="modal-info">
+            <div class="modal-info-sub">
+              <div class="md-name md-subitems">
+                <h1 id="mdTitle"></h1>
+              </div>
+              <div class="md-genre md-subitems">
+                <p id="mdGenre"></p>
+              </div>
+              <div class="md-num-area md-subitems">
+                <span class="imdb-icon"><i class="fab fa-imdb"></i></span>
+                <span class="md-numbers imdb-rating" id="mdRating"></span>
+                <span class="md-numbers" id="mdYear"></span>
+                <span class="md-numbers" id="mdRuntime"></span>
+              </div>
+              <div class="md-synopsis md-subitems">
+                <p id="mdOverview"></p>
+              </div>
+              <div class="md-btn md-subitems">
+                <button class="btn" id="md-moreinfoBtn">
+                  <a href="" target="_blank">More Information</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <!-- <hr class="footer-line" /> -->
+      <div class="footer-content">
+        <div class="footer-cclogo">
+          <img src="../images/Logo.svg" alt="CinemaCrate" />
+          <span>CinemaCrate</span>
+        </div>
+        <div class="footer-tmdblogo">
+          <span>Powered by</span>
+          <img src="../images/tmdb.svg" alt="themoviedb" />
+        </div>
+      </div>
+    </div>
+    <script src="./search/search.js"></script>
+    <!-- <script src="apiTransaction.js"></script>
+    <script src="app.js"></script> -->
+  </body>
+</html>
