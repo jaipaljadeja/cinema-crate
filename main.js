@@ -12,6 +12,21 @@ function generateOmdbUrl(imdb_id) {
   const url = `http://www.omdbapi.com/?i=${imdb_id}&apikey=e3651111`;
   return url;
 }
+//---------------------- SEARCH BUTTON ---------------------------
+
+const buttonElement = document.querySelector('#search-btn');
+const inputElement = document.querySelector('#input-value');
+
+
+buttonElement.onclick = function (event) {
+  event.preventDefault();
+  const value = inputElement.value;
+  document.location.href = `search.html?query=${value}`;
+  // console.log('Value : ', value);
+}
+
+
+
 
 //--------------------------------- FUnction to create the movies table ------------------------
 // HELP for ********* function itemsGrid(listUrl, flw_cat, flw_type) ***********************
@@ -72,83 +87,140 @@ function getImdbId_Movie(tmdbId, type) {
   }
 }
 
+
 function moviePoster(movies) {
-  return movies.map((movie) => {
+  const movieCard = document.createElement('div');
+  movieCard.classList = 'cards';
+
+  movies.map((movie) => {
     if (movie.poster_path) {
+
       const id = movie.id;
       getImdbId_Movie(id, "Movie");
-      return `<div class="flw-item">
-  <div class="film-poster">
-    <a class="modalBtn">
-      <img
-        src="${Url_Poster + movie.poster_path}"
-        class="film-poster-img"
-        title="Movie Name"
-        alt="Movie Name"
-        data-movie-id="${movie.id}"
-        type="Movie"
-      />
-    </a>
-  </div>
-  <div class="mr-film-detail">
-    <h3 class="film-name">
-      <a class="modalBtn"> ${movie.title} </a>
-    </h3>
-    <div class="ex-film-info">
-      <span class="film-year">${movie.release_date.substr(0, 4)}</span>
-    </div>
-  </div>
-</div>`;
+
+      const flwItem = document.createElement('div');
+      flwItem.classList = 'flw-item';
+
+      const filmPosterDiv = document.createElement('div');
+      filmPosterDiv.classList = 'film-poster';
+      flwItem.appendChild(filmPosterDiv);
+
+
+      const posterModalBtnA = document.createElement('a');
+      posterModalBtnA.classList = 'modalBtn';
+      filmPosterDiv.appendChild(posterModalBtnA);
+
+      const img = document.createElement('img');
+      img.src = Url_Poster + movie.poster_path;
+      img.classList = "film-poster-img";
+      img['title'] = "Movie Name";
+      img['alt'] = "Movie Name";
+      img.setAttribute("data-movie-id", `${movie.id}`);
+      img.setAttribute("type", "Movie");
+      posterModalBtnA.appendChild(img);
+
+      const mrFilmDetail = document.createElement('div');
+      mrFilmDetail.classList = 'mr-film-detail';
+      flwItem.appendChild(mrFilmDetail);
+
+      const titleH3 = document.createElement('h3');
+      titleH3.classList = 'film-name';
+      mrFilmDetail.appendChild(titleH3);
+
+      const titleModalBtnA = document.createElement('a');
+      titleModalBtnA.classList = 'modalBtn';
+      titleModalBtnA.innerHTML = movie.title;
+      titleH3.appendChild(titleModalBtnA);
+
+      const exFilmInfo = document.createElement('div');
+      exFilmInfo.classList = 'ex-film-info';
+      mrFilmDetail.appendChild(exFilmInfo);
+
+      const filmYearSpan = document.createElement('span');
+      filmYearSpan.classList = 'film-year';
+      filmYearSpan.innerHTML = movie.release_date.substr(0, 4);
+      exFilmInfo.appendChild(filmYearSpan);
+
+      movieCard.appendChild(flwItem);
     }
   });
+  return movieCard;
 }
 
+
 function tvPoster(tvItems) {
-  return tvItems.map((tv) => {
+  const tvCard = document.createElement('div');
+  tvCard.classList = 'cards';
+
+  tvItems.map((tv) => {
+
     if (tv.poster_path) {
       const id = tv.id;
       getImdbId_Movie(id, "TV");
-      return `<div class="flw-item">
-    <div class="film-poster">
-      <a class="modalBtn">
-        <img
-          src="${Url_Poster + tv.poster_path}"
-          class="film-poster-img"
-          title="TV"
-          alt="TV"
-          data-tv-id="${tv.id}"
-          type="TV"
-        />
-      </a>
-    </div>
-    <div class="mr-film-detail">
-      <h3 class="film-name">
-        <a class="modalBtn"> ${tv.name} </a>
-      </h3>
-      <div class="ex-film-info">
-        <span class="film-year">${tv.first_air_date.substr(0, 4)}</span>
-      </div>
-    </div>
-  </div>
-     `;
+
+
+      const flwItem = document.createElement('div');
+      flwItem.classList = 'flw-item';
+
+      const filmPosterDiv = document.createElement('div');
+      filmPosterDiv.classList = 'film-poster';
+      flwItem.appendChild(filmPosterDiv);
+
+
+      const posterModalBtnA = document.createElement('a');
+      posterModalBtnA.classList = 'modalBtn';
+      filmPosterDiv.appendChild(posterModalBtnA);
+
+      const img = document.createElement('img');
+      img.src = Url_Poster + tv.poster_path;
+      img.classList = "film-poster-img";
+      img['title'] = "TV";
+      img['alt'] = "TV";
+      img.setAttribute("data-tv-id", `${tv.id}`);
+      img.setAttribute("type", "TV");
+      posterModalBtnA.appendChild(img);
+
+      const mrFilmDetail = document.createElement('div');
+      mrFilmDetail.classList = 'mr-film-detail';
+      flwItem.appendChild(mrFilmDetail);
+
+      const titleH3 = document.createElement('h3');
+      titleH3.classList = 'film-name';
+      mrFilmDetail.appendChild(titleH3);
+
+      const titleModalBtnA = document.createElement('a');
+      titleModalBtnA.classList = 'modalBtn';
+      titleModalBtnA.innerHTML = tv.name;
+      titleH3.appendChild(titleModalBtnA);
+
+      const exFilmInfo = document.createElement('div');
+      exFilmInfo.classList = 'ex-film-info';
+      mrFilmDetail.appendChild(exFilmInfo);
+
+      const filmYearSpan = document.createElement('span');
+      filmYearSpan.classList = 'film-year';
+      filmYearSpan.innerHTML = tv.first_air_date.substr(0, 4);
+      exFilmInfo.appendChild(filmYearSpan);
+
+      tvCard.appendChild(flwItem);
+
     }
   });
+  return tvCard;
 }
 
 function createItemContainer(items, flw_type) {
   if (flw_type == "Movie") {
     const movieElement = document.createElement("div");
     movieElement.setAttribute("class", "filmlist-wrap");
-    const movieTemplate = moviePoster(items);
-    movieElement.innerHTML = movieTemplate;
+    movieElement.appendChild(moviePoster(items));
     return movieElement;
   }
 
   if (flw_type == "TV") {
     const tvElement = document.createElement("div");
     tvElement.setAttribute("class", "filmlist-wrap");
-    const tvTemplate = tvPoster(items);
-    tvElement.innerHTML = tvTemplate;
+    tvElement.appendChild(tvPoster(items));;
     return tvElement;
   }
 }
@@ -231,7 +303,7 @@ function fetchMovieInfo(url, type) {
     .then((data) => {
       //TODO
       //Display movie info
-      console.log("Movie Info ", data);
+      // console.log("Movie Info ", data);
       cookPopupInfo(data, type);
     })
     .catch((error) => {
@@ -245,7 +317,7 @@ function fetchImdbRating(url) {
     .then((data) => {
       //TODO
       //Display movie info
-      console.log("Omdb Info ", data);
+      // console.log("Omdb Info ", data);
       document.getElementById("mdRating").innerHTML = `${data.imdbRating}`;
     })
     .catch((error) => {
@@ -257,14 +329,14 @@ document.onclick = function (event) {
   const target = event.target;
 
   if (target.tagName.toLowerCase() === "img") {
-    console.log("Event: ", event);
+    // console.log("Event: ", event);
     if (target.dataset.movieId) {
       const movieId = target.dataset.movieId;
-      console.log("Movie ID: ", movieId);
+      // console.log("Movie ID: ", movieId);
       modal.style.display = "block";
       const imageItem = document.querySelector(`[data-movie-id="${movieId}"]`);
       const imdbId = imageItem.getAttribute(`imdb-id`);
-      console.log("popup imdb id : " + imdbId);
+      // console.log("popup imdb id : " + imdbId);
       const path = `/movie/${movieId}`;
       const url = generateTmdbUrl(path);
       const omdbUrl = generateOmdbUrl(imdbId);
@@ -276,11 +348,11 @@ document.onclick = function (event) {
 
     if (target.dataset.tvId) {
       const tvId = target.dataset.tvId;
-      console.log("Movie ID: ", tvId);
+      // console.log("Movie ID: ", tvId);
       modal.style.display = "block";
       const imageItem = document.querySelector(`[data-tv-id="${tvId}"]`);
       const imdbId = imageItem.getAttribute(`imdb-id`);
-      console.log("popup imdb id : " + imdbId);
+      // console.log("popup imdb id : " + imdbId);
       const path = `/tv/${tvId}`;
       const url = generateTmdbUrl(path);
       const omdbUrl = generateOmdbUrl(imdbId);
@@ -323,7 +395,7 @@ function cookPopupInfo(item, type) {
 
     //for genres
     item.genres.forEach(function (e) {
-      console.log(e.id + " : " + e.name);
+      // console.log(e.id + " : " + e.name);
       document.getElementById("mdGenre").textContent += ` | ${e.name}`;
     });
 
@@ -351,7 +423,7 @@ function cookPopupInfo(item, type) {
 
     //for genres
     item.genres.forEach(function (e) {
-      console.log(e.id + " : " + e.name);
+      // console.log(e.id + " : " + e.name);
       document.getElementById("mdGenre").textContent += ` | ${e.name}`;
     });
 
