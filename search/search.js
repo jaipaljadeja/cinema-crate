@@ -2,12 +2,12 @@ const tmdbKey = "cee4d8f2967818ead1e098e8d5ca145d";
 const omdbKey = "e3651111";
 let imdb;
 const Url_Poster = "https://image.tmdb.org/t/p/w342";
-var mCurrPage = 1;
-var mNextPage;
-var mPrevPage;
-var tCurrPage = 1;
-var tNextPage;
-var tPrevPage;
+let mCurrPage = 1;
+let mNextPage;
+let mPrevPage;
+let tCurrPage = 1;
+let tNextPage;
+let tPrevPage;
 
 
 
@@ -293,9 +293,9 @@ const inputElement = document.querySelector('#input-value');
 
 function getSearchQuery() {
     try {
-        var url_string = (window.location.href).toLowerCase();
-        var url = new URL(url_string);
-        var query = url.searchParams.get("query");
+        let url_string = (window.location.href).toLowerCase();
+        let url = new URL(url_string);
+        let query = url.searchParams.get("query");
         document.querySelector('#searchValueDisplay').innerHTML = `<center><h2>Search: "${query}"</h2></center>`;
         searchKeyword(query);
 
@@ -372,14 +372,14 @@ function nextTvPage() {
 
 
 function changeMoviePage(page) {
-    var btn_prev = document.getElementById("m_btn_prev");
-    var btn_curr = document.getElementById("m_btn_curr");
-    var btn_next = document.getElementById("m_btn_next");
+    let btn_prev = document.getElementById("m_btn_prev");
+    let btn_curr = document.getElementById("m_btn_curr");
+    let btn_next = document.getElementById("m_btn_next");
     if (page < 1) page = 1;
     if (page > getMovieMaxPages()) page = getMovieMaxPages();
-    var url_string = (window.location.href).toLowerCase();
-    var url = new URL(url_string);
-    var query = url.searchParams.get("query");
+    let url_string = (window.location.href).toLowerCase();
+    let url = new URL(url_string);
+    let query = url.searchParams.get("query");
     // console.log("Query is = " + query);
     btn_curr.innerHTML = page;
     document.querySelector('#movie-results').innerHTML = "";
@@ -390,9 +390,9 @@ function changeMoviePage(page) {
 }
 
 function changeTvPage(page) {
-    var btn_prev = document.getElementById("t_btn_prev");
-    var btn_next = document.getElementById("t_btn_next");
-    var btn_curr = document.getElementById("t_btn_curr");
+    let btn_prev = document.getElementById("t_btn_prev");
+    let btn_next = document.getElementById("t_btn_next");
+    let btn_curr = document.getElementById("t_btn_curr");
 
     if (page < 1) page = 1;
     if (page > getTvMaxPages()) page = getTvMaxPages();
@@ -409,9 +409,9 @@ function changeTvPage(page) {
         btn_next.style.display = "block";
     }
 
-    var url_string = (window.location.href).toLowerCase();
-    var url = new URL(url_string);
-    var query = url.searchParams.get("query");
+    let url_string = (window.location.href).toLowerCase();
+    let url = new URL(url_string);
+    let query = url.searchParams.get("query");
     // console.log("Query is = " + query);
     btn_curr.innerHTML = page;
     document.querySelector('#tv-results').innerHTML = "";
@@ -427,7 +427,7 @@ function changeTvPage(page) {
 // ----------------------------------- POPUP Modal ----------------------------------------------------------
 
 //get modal element
-var modal = document.getElementById("simpleModal");
+let modal = document.getElementById("simpleModal");
 
 //Getting all info about movie from tmdb and palcing in popup using cookPopupInfo function
 function fetchMovieInfo(url, type) {
@@ -496,7 +496,7 @@ document.onclick = function (event) {
         }
     }
     //get close button
-    var closeBtn = document.getElementById("closeBtn");
+    let closeBtn = document.getElementById("closeBtn");
     //listen for close click
     closeBtn.addEventListener("click", closeModal);
     //listen for outside click

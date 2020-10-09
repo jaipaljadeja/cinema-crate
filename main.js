@@ -294,7 +294,7 @@ itemsGrid(generateTmdbUrl(topRatedTvPath), "#flw-toprated-tv-wrap", "TV");
 // ----------------------------------- POPUP Modal ----------------------------------------------------------
 
 //get modal element
-var modal = document.getElementById("simpleModal");
+let modal = document.getElementById("simpleModal");
 
 //Getting all info about movie from tmdb and palcing in popup using cookPopupInfo function
 function fetchMovieInfo(url, type) {
@@ -363,7 +363,7 @@ document.onclick = function (event) {
     }
   }
   //get close button
-  var closeBtn = document.getElementById("closeBtn");
+  let closeBtn = document.getElementById("closeBtn");
   //listen for close click
   closeBtn.addEventListener("click", closeModal);
   //listen for outside click
