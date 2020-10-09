@@ -229,6 +229,11 @@ body {
 .search-box .btn {
   color: #1d1d1d;
   font-size: 15px;
+  margin-left: 5px;
+}
+
+#searchbox-form {
+  display: flex;
 }
 
 /* SEARCH BOX END */
@@ -264,7 +269,7 @@ body {
   justify-content: space-between;
   padding-bottom: 20px;
 }
-.filmlist-wrap {
+.filmlist-wrap .cards {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
