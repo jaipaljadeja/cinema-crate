@@ -30,7 +30,7 @@
       <div class="header">
         <div id="logo">
           <img src="images/Logo.svg" alt="CinemaCrate" />
-          <a href="">CinemaCrate</a>
+          <a href="index.html">CinemaCrate</a>
         </div>
         <div id="logo-name"></div>
         <nav>
@@ -94,18 +94,24 @@
       <div class="search-container">
         <div class="search-box">
           <div class="search-icon"><i class="fa fa-search"></i></div>
-          <form @submit="search">
-            <input
-              v-model="keyword"
-              type="text"
-              class="form-control search-input"
-              name="keyword"
-              placeholder="Search Movies, TV Shows and much more..."
-              autocomplete="off"
-            />
-            <button class="btn btn-primary btn-primary-submit">
-              <i class="fa fa-arrow-right"></i>
-            </button>
+          <form id="searchbox-form">
+            <form @submit="search">
+              <input
+                id="input-value"
+                v-model="keyword"
+                type="text"
+                class="form-control search-input"
+                name="keyword"
+                placeholder="Search Movies, TV Shows and much more..."
+                autocomplete="off"
+              />
+              <button
+                id="search-btn"
+                class="btn btn-primary btn-primary-submit"
+              >
+                <i class="fa fa-arrow-right"></i>
+              </button>
+            </form>
           </form>
         </div>
       </div>
