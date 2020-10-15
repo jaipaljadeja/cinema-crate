@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CinemaCrate</title>
+    <!-- LINKING FONTAWESOME -->
+    <script
+      src="https://kit.fontawesome.com/e3580562cc.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- LINKING CSS  -->
+    <link rel="stylesheet" href="css/movie.css" />
+    <!-- LINKING FONTS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      charset="utf-8"
+    ></script>
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div class="header">
+        <div id="logo">
+          <img src="images/Logo.svg" alt="CinemaCrate" />
+          <a href="index.html">CinemaCrate</a>
+        </div>
+        <div class="search-box">
+          <div class="search-icon"><i class="fa fa-search"></i></div>
+          <form id="searchbox-form">
+            <input
+              id="input-value"
+              type="text"
+              v-model="keyword"
+              class="form-control search-input"
+              placeholder="Search Movies, TV Shows and much more..."
+              autocomplete="off"
+              required
+            />
+            <button id="search-btn" class="btn btn-primary btn-primary-submit">
+              <i class="fa fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+        <nav>
+          <ul class="nav_links">
+            <li class="item"><a href="">Signup</a></li>
+            <li class="item"><a href="">Login</a></li>
+            <li class="item">
+              <div class="sidebar-btn">
+                <i class="fas fa-bars"></i>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="sidebar">
+        <div class="sidebar-menu">
+          <div class="sidebar-close-btn">
+            <i class="fas fa-times"></i>
+          </div>
+          <center class="sidebar-profile">
+            <span><i class="fas fa-user-circle"></i></span>
+            <p>username</p>
+          </center>
+          <hr />
+          <ul>
+            <li class="sidebar-items">
+              <a href="" class="menu-btn"
+                ><i class="fas fa-home"></i><span>Home</span></a
+              >
+            </li>
+            <li class="sidebar-items">
+              <a href="" class="menu-btn"
+                ><i class="fas fa-heart"></i><span>Favourite</span></a
+              >
+            </li>
+            <li class="sidebar-items">
+              <a href="" class="menu-btn"
+                ><i class="fas fa-clipboard-list"></i><span>Watch-List</span></a
+              >
+            </li>
+            <li class="sidebar-items">
+              <a href="" class="menu-btn"
+                ><i class="fas fa-envelope"></i><span>Contact Us</span></a
+              >
+            </li>
+            <li class="sidebar-items">
+              <a href="" class="menu-btn"
+                ><i class="fas fa-info-circle"></i><span>About Us</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-wrapper">
+      <div class="container">
+        <div class="backdrop-img-area" id="backdrop-img">
+          <div class="backdrop-content">
+            <div class="movie-poster-area">
+              <img id="poster-image" src="images/poster.jpg" alt="" />
+            </div>
+            <div class="movie-info-area">
+              <h2 id="movie-name">Peninsula: Train to busan 2</h2>
+              <div class="md-genre md-subitems">
+                <p id="mdGenre"></p>
+              </div>
+              <div class="md-num-area md-subitems">
+                <span class="imdb-icon"><i class="fab fa-imdb"></i></span>
+                <span class="md-numbers imdb-rating" id="mdRating">9.3</span>
+                <span class="md-numbers" id="mdYear">2020</span>
+                <span class="md-numbers" id="mdRuntime">90 Min</span>
+              </div>
+              <div class="md-synopsis md-subitems">
+                <p id="mdOverview">
+                  In the mythical continent of Westeros, several powerful
+                  families fight for control of the Seven Kingdoms. As conflict
+                  erupts in the kingdoms of men, an ancient enemy rises once
+                  again to threaten them all. Meanwhile, the last heirs of a
+                  recently usurped dynasty plot to take back their homeland from
+                  across the Narrow Sea. Lorem, ipsum dolor sit amet consectetur
+                  adipisicing elit. Deleniti minima nisi cumque vel veritatis,
+                  non ut molestias, repudiandae cum atque voluptate excepturi
+                  impedit deserunt, nobis hic quia! Iure repellat, et vero quos
+                  natus quia molestias ex. Voluptate porro vel veritatis, sit
+                  ratione atque sint consequuntur tempore, minus autem, quidem
+                  voluptatibus ab libero corrupti sapiente! Repellat harum
+                  eligendi esse maxime neque quo sequi veritatis velit eaque!
+                  Odit quo distinctio beatae modi nihil blanditiis, ab vero
+                  doloremque pariatur autem consequatur, libero quidem dolore
+                  soluta provident earum molestias nostrum optio dicta
+                  temporibus voluptas quis laudantium? Ducimus non pariatur
+                  ipsam sapiente libero delectus sunt!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="second-section">
+          <div class="movie-info-left">
+            <div class="sub-info">
+              <!-- extra info to be inserted here -->
+            </div>
+          </div>
+          <div class="movie-info-right">
+            <div class="cast-area">
+              <h3>Cast :</h3>
+              <div id="cast-area-js">
+                <!-- <div class="cast-items">
+                  <div class="cast-card">
+                    <div class="cast-image-area">
+                      <img id="cast-image" src="images/cast.jpg" alt="" />
+                    </div>
+                    <div class="cast-info-area">
+                      <p id="cast-name">Kang Dong-won</p>
+                      <p id="cast-character">Jung-seok</p>
+                    </div>
+                  </div>
+                  <div class="cast-card">
+                    <div class="cast-image-area">
+                      <img id="cast-image" src="images/cast.jpg" alt="" />
+                    </div>
+                    <div class="cast-info-area">
+                      <p id="cast-name">Kang Dong-won</p>
+                      <p id="cast-character">Jung-seok</p>
+                    </div>
+                  </div>
+                  <div class="cast-card">
+                    <div class="cast-image-area">
+                      <img id="cast-image" src="images/cast.jpg" alt="" />
+                    </div>
+                    <div class="cast-info-area">
+                      <p id="cast-name">Kang Dong-won</p>
+                      <p id="cast-character">Jung-seok</p>
+                    </div>
+                  </div>
+                  <div class="cast-card">
+                    <div class="cast-image-area">
+                      <img id="cast-image" src="images/cast.jpg" alt="" />
+                    </div>
+                    <div class="cast-info-area">
+                      <p id="cast-name">Kang Dong-won</p>
+                      <p id="cast-character">Jung-seok</p>
+                    </div>
+                  </div>
+                  <div class="cast-card">
+                    <div class="cast-image-area">
+                      <img id="cast-image" src="images/cast.jpg" alt="" />
+                    </div>
+                    <div class="cast-info-area">
+                      <p id="cast-name">Kang Dong-won</p>
+                      <p id="cast-character">Jung-seok</p>
+                    </div>
+                  </div>
+                  <div class="cast-card">
+                    <div class="cast-image-area">
+                      <img id="cast-image" src="images/cast.jpg" alt="" />
+                    </div>
+                    <div class="cast-info-area">
+                      <p id="cast-name">Kang Dong-won</p>
+                      <p id="cast-character">Jung-seok</p>
+                    </div>
+                  </div>
+                  <div class="cast-card">
+                    <div class="cast-image-area">
+                      <img id="cast-image" src="images/cast.jpg" alt="" />
+                    </div>
+                    <div class="cast-info-area">
+                      <p id="cast-name">Kang Dong-won</p>
+                      <p id="cast-character">Jung-seok</p>
+                    </div>
+                  </div>
+                  <div class="cast-card">
+                    <div class="cast-image-area">
+                      <img id="cast-image" src="images/cast.jpg" alt="" />
+                    </div>
+                    <div class="cast-info-area">
+                      <p id="cast-name">Kang Dong-won</p>
+                      <p id="cast-character">Jung-seok</p>
+                    </div>
+                  </div>
+                  <div class="cast-card">
+                    <div class="cast-image-area">
+                      <img id="cast-image" src="images/cast.jpg" alt="" />
+                    </div>
+                    <div class="cast-info-area">
+                      <p id="cast-name">Kang Dong-won</p>
+                      <p id="cast-character">Jung-seok</p>
+                    </div>
+                  </div>
+                  <div class="cast-card">
+                    <div class="cast-image-area">
+                      <img id="cast-image" src="images/cast.jpg" alt="" />
+                    </div>
+                    <div class="cast-info-area">
+                      <p id="cast-name">Kang Dong-won</p>
+                      <p id="cast-character">Jung-seok</p>
+                    </div>
+                  </div>
+                  <div class="cast-card">
+                    <div class="cast-image-area">
+                      <img id="cast-image" src="images/cast.jpg" alt="" />
+                    </div>
+                    <div class="cast-info-area">
+                      <p id="cast-name">Kang Dong-won</p>
+                      <p id="cast-character">Jung-seok</p>
+                    </div>
+                  </div>
+                  <div class="cast-card">
+                    <div class="cast-image-area">
+                      <img id="cast-image" src="images/cast.jpg" alt="" />
+                    </div>
+                    <div class="cast-info-area">
+                      <p id="cast-name">Kang Dong-won</p>
+                      <p id="cast-character">Jung-seok</p>
+                    </div>
+                  </div>
+                  <div class="cast-card">
+                    <div class="cast-image-area">
+                      <img id="cast-image" src="images/cast.jpg" alt="" />
+                    </div>
+                    <div class="cast-info-area">
+                      <p id="cast-name">Kang Dong-won</p>
+                      <p id="cast-character">Jung-seok</p>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+            <hr />
+            <div class="reviews-container">
+              <h3>Reviews :</h3>
+              <div class="reviews-area">
+                <div id="reviews-area-js">
+                  <!-- <div class="review-item">
+                    <div class="reviewer-info">
+                      <span><i class="fas fa-user-circle"></i></span>
+                      <p id="reviewer-name">username</p>
+                    </div>
+                    <div class="review-content">
+                      <p id="review-text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Sint minus porro fuga id similique maiores nostrum
+                        possimus sapiente numquam reprehenderit, consequatur
+                        explicabo, fugit consequuntur doloremque! Ut unde
+                        sapiente quidem possimus.
+                      </p>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="pagination" id="reviews-pagination">
+                  <a href="javascript:prevReviewPage()" id="m_btn_prev"
+                    >&laquo;</a
+                  >
+                  <a class="active" id="m_btn_curr" href="#">1</a>
+                  <a href="javascript:nextReviewPage()" id="m_btn_next"
+                    >&raquo;</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <script src="search/search.js"></script> -->
+    <!-- <script src="apiTransaction.js"></script>
+    <script src="app.js"></script> -->
+    <script src="js/movie.js"></script>
+  </body>
+  <footer>
+    <div class="footer">
+      <!-- <hr class="footer-line" /> -->
+      <div class="footer-content">
+        <div class="footer-cclogo">
+          <img src="images/Logo.svg" alt="CinemaCrate" />
+          <span>CinemaCrate</span>
+        </div>
+        <div class="footer-tmdblogo">
+          <span>Powered by</span>
+          <img src="images/tmdb.svg" alt="themoviedb" />
+        </div>
+      </div>
+    </div>
+  </footer>
+</html>
