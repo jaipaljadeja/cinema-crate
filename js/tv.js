@@ -59,7 +59,7 @@ function fetchImdbId(url) {
 
 function getImdbId_Movie(tmdbId) {
 
-    const path = `/movie/${tmdbId}/external_ids`;
+    const path = `/tv/${tmdbId}/external_ids`;
     url = generateTmdbUrl(path);
     fetchImdbId(url);
 
@@ -156,9 +156,9 @@ function fetchImdbRating(url) {
 }
 
 
-function cookMovieInfo(item) {
+function cookTvInfo(item) {
 
-    document.getElementById("movie-name").innerHTML = `${item.title}`;
+    document.getElementById("movie-name").innerHTML = `${item.name}`;
     document.getElementById("poster-image").src = Url_Poster + item.poster_path;
     document.documentElement.style
         .setProperty('--bg-url', `url("${Url_Backdrop + item.backdrop_path}")`);
@@ -169,7 +169,7 @@ function cookMovieInfo(item) {
     });
 
     //for release date
-    document.getElementById("mdYear").innerHTML = `${item.release_date.substr(
+    document.getElementById("mdYear").innerHTML = `${item.first_air_date.substr(
         0,
         4
     )}`;
@@ -185,17 +185,17 @@ function cookMovieInfo(item) {
     document.getElementById("mdOverview").innerHTML = `${item.overview}`;
 
     //for runtime
-    document.getElementById("mdRuntime").innerHTML = `${item.runtime} MIN`;
+    document.getElementById("mdRuntime").innerHTML = `${item.episode_run_time} MIN/EP`;
 }
 
-function fetchMovieInfo(url, type) {
+function fetchTvInfo(url, type) {
     fetch(url)
         .then((res) => res.json())
         .then((data) => {
             //TODO
             //Display movie info
             // console.log("Movie Info ", data);
-            cookMovieInfo(data, type);
+            cookTvInfo(data, type);
         })
         .catch((error) => {
             console.log("Error: ", error);
@@ -203,16 +203,16 @@ function fetchMovieInfo(url, type) {
 }
 
 
-function searchMovieInfo(id) {
-    moviePath = `/movie/${id}`;
-    movieUrl = generateTmdbUrl(moviePath);
-    fetchMovieInfo(movieUrl);
+function searchTvInfo(id) {
+    tvPath = `/tv/${id}`;
+    tvUrl = generateTmdbUrl(tvPath);
+    fetchTvInfo(tvUrl);
 
 
 }
 
 function searchCast(id) {
-    const creditsPath = `/movie/${id}/credits`;
+    const creditsPath = `/tv/${id}/credits`;
     const creditsUrl = generateTmdbUrl(creditsPath);
     itemsGrid(creditsUrl, "#cast-area-js");
 }
@@ -270,7 +270,7 @@ function createReviewsContainer(items) {
 
 
 
-function getMovieReviews(url) {
+function getTvReviews(url) {
     const review_area = document.getElementById("reviews-area-js"); // Seclecting Division under which we have to append the list
 
     fetch(url)
@@ -300,10 +300,10 @@ function getMovieReviews(url) {
 }
 
 
-function searchMovieReviews(id) {
-    const path = `/movie/${id}/reviews`;
+function searchTvReviews(id) {
+    const path = `/tv/${id}/reviews`;
     const url = generateTmdbUrl(path);
-    getMovieReviews(url);
+    getTvReviews(url);
 }
 
 function getSearchId() {
@@ -313,8 +313,8 @@ function getSearchId() {
         let id = url.searchParams.get("id");
         getImdbId_Movie(id);
         searchCast(id);
-        searchMovieInfo(id);
-        searchMovieReviews(id);
+        searchTvInfo(id);
+        searchTvReviews(id);
 
 
     } catch (error) {
@@ -382,9 +382,9 @@ function changeReviewPage(page) {
     let id = url.searchParams.get("id");
     btn_curr.innerHTML = page;
     document.querySelector('#reviews-area-js').innerHTML = "";
-    const reviewPath = `/movie/${id}/reviews`;
+    const reviewPath = `/tv/${id}/reviews`;
     const reviewUrl = generateTmdbUrl(reviewPath) + `&page=${page}`;
-    getMovieReviews(reviewUrl);
+    getTvReviews(reviewUrl);
 }
 
 //-------------------- SIDE BAR OPENING SCRIPT -----------------------
