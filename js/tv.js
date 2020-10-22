@@ -170,15 +170,17 @@ function cookTvInfo(item) {
     });
 
     item.seasons.forEach(function (e) {
-        const tvSeasonBox = document.createElement('div');
-        tvSeasonBox.classList = 'tv-season';
+        if (e.season_number > 0) {
+            const tvSeasonBox = document.createElement('div');
+            tvSeasonBox.classList = 'tv-season';
 
-        const seasonNum = document.createElement('p');
-        seasonNum.classList = 'season-number';
-        seasonNum.innerHTML = `Season ${e.season_number} | ${e.episode_count} EPS`;
-        tvSeasonBox.appendChild(seasonNum);
+            const seasonNum = document.createElement('p');
+            seasonNum.classList = 'season-number';
+            seasonNum.innerHTML = `Season ${e.season_number} | ${e.episode_count} EPS`;
+            tvSeasonBox.appendChild(seasonNum);
 
-        leftSubInfo.appendChild(tvSeasonBox);
+            leftSubInfo.appendChild(tvSeasonBox);
+        }
     });
 
     //for release date
