@@ -157,7 +157,8 @@ function fetchImdbRating(url) {
 
 
 function cookTvInfo(item) {
-
+    const leftSubInfo = document.getElementById("left-sub-info");
+    leftSubInfo.innerHTML = "";
     document.getElementById("movie-name").innerHTML = `${item.name}`;
     document.getElementById("poster-image").src = Url_Poster + item.poster_path;
     document.documentElement.style
@@ -166,6 +167,18 @@ function cookTvInfo(item) {
     item.genres.forEach(function (e) {
         // console.log(e.id + " : " + e.name);
         document.getElementById("mdGenre").textContent += ` | ${e.name}`;
+    });
+
+    item.seasons.forEach(function (e) {
+        const tvSeasonBox = document.createElement('div');
+        tvSeasonBox.classList = 'tv-season';
+
+        const seasonNum = document.createElement('p');
+        seasonNum.classList = 'season-number';
+        seasonNum.innerHTML = `Season ${e.season_number} | ${e.episode_count} EPS`;
+        tvSeasonBox.appendChild(seasonNum);
+
+        leftSubInfo.appendChild(tvSeasonBox);
     });
 
     //for release date

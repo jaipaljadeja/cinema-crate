@@ -329,7 +329,7 @@ body {
   color: #ffdf46;
 }
 
-.md-num-area .md-numbers {
+.md-numbers {
   font-size: 22px;
   background-color: #494949;
   border-radius: 5px;
@@ -367,7 +367,6 @@ body {
 }
 
 .movie-info-left {
-  flex-grow: 1;
   min-width: 20vw;
 }
 
@@ -375,6 +374,23 @@ body {
   flex-grow: 2;
 }
 
+#left-sub-info {
+  padding-top: 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tv-season {
+  margin-bottom: 1vw;
+  font-size: 22px;
+  background-color: #ffdf46;
+  border-radius: 5px;
+  padding: 0px 15px;
+  color: #1d1d1d;
+  min-width: 11.5vw;
+}
 /* -------------------------CAST (START)-------------------  */
 .cast-area h3 {
   font-size: 2em;
