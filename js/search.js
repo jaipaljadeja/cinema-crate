@@ -18,7 +18,7 @@ function generateTmdbUrl(path) {
 
 
 function generateOmdbUrl(imdb_id) {
-    const url = `http://www.omdbapi.com/?i=${imdb_id}&apikey=e3651111`;
+    const url = `https://www.omdbapi.com/?i=${imdb_id}&apikey=e3651111`;
     return url;
 }
 
