@@ -52,7 +52,7 @@ function generateOmdbUrl(imdb_id) {
 
 
 
-//--------------------------------- FUnction to create the movies table ------------------------
+//--------------------------------- Function to create the movies table ------------------------
 // HELP for ********* function itemsGrid(listUrl, flw_cat, flw_type) ***********************
 // here
 // listurl:(URL) a url which returns a full list of information about movies/tv show example- popularmovie url

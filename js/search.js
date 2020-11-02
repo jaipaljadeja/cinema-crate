@@ -249,7 +249,7 @@ function createItemContainer(items, flw_type) {
 }
 
 function itemsGrid(listUrl, flw_cat, flw_type) {
-    const flw_wrap = document.querySelector(flw_cat); // Seclecting Division under which we have to append the list
+    const flw_wrap = document.querySelector(flw_cat); // Selecting Division under which we have to append the list
 
     if (flw_type == "Movie") {
         fetch(listUrl)
