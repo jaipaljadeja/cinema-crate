@@ -29,7 +29,7 @@ body {
   align-items: center;
   padding: 20px 4.3%;
 }
-/* ADIING BACKGROUND SHAPE SVG (CURRENTLY NOT RESPONSIVE) */
+/* ADDING BACKGROUND SHAPE SVG (CURRENTLY NOT RESPONSIVE) */
 /* will make it hidden with media query and screen width */
 /* Or will scale it according to screen width */
 
@@ -187,7 +187,7 @@ body {
   color: #ffdf46;
   font-weight: 400;
 }
-/* SEARC BOX START */
+/* SEARCH BOX START */
 .search-container {
   display: flex;
   align-items: center;
